@@ -1,0 +1,19 @@
+---
+version: 3
+
+images:
+  base_image:
+    name: quay.io/ansible/awx-ee:latest
+
+dependencies:
+  ansible_core:
+    package_pip: ansible-core
+  ansible_runner:
+    package_pip: ansible-runner
+  galaxy: collections/requirements.yml
+  python: requirements.txt
+
+additional_build_steps:
+  prepend_base:
+    - RUN dnf install -y gcc gcc-c++ make python3-devel redhat-rpm-config libxml2-devel
+    - RUN dnf clean all
