@@ -15,5 +15,5 @@ dependencies:
 
 additional_build_steps:
   prepend_base:
-    - RUN dnf install -y gcc gcc-c++ make python3-devel redhat-rpm-config libxml2-devel
+    - RUN dnf install -y gcc gcc-c++ make python3-devel redhat-rpm-config libxml2-devel iputils
     - RUN dnf clean all
